@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>hu.evo.training.pmamico</groupId>
+    <artifactId>ejb-state</artifactId>
+    <version>1.0</version>
+
+    <packaging>war</packaging>
+
+    <properties>
+        <wildfly-home>/Users/mico/Documents/dev/server/wildfly-11</wildfly-home>
+        <wildfly-hostname>127.0.0.1</wildfly-hostname>
+        <wildfly-port>9990</wildfly-port>
+        <wildfly-username>admin</wildfly-username>
+        <wildfly-password>admin</wildfly-password>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.2.2.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.enterprise/cdi-api -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.ejb/ejb-api -->
+<!--        <dependency>-->
+<!--            <groupId>javax.ejb</groupId>-->
+<!--            <artifactId>ejb-api</artifactId>-->
+<!--            <version>3.0</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>ejb</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <!-- Java version-->
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.2.2.Final</version>
+                <configuration>
+                    <hostname>${wildfly-hostname}</hostname>
+                    <port>${wildfly-port}</port>
+                    <username>${wildfly-username}</username>
+                    <password>${wildfly-password}</password>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
